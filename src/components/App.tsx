@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useAxios} from "../hooks"
+import {baseURL} from "../constants"
 
-const baseURL = 'https://jsonplaceholder.typicode.com';
 
 export const App = () => {
 

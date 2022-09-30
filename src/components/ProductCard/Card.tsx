@@ -15,11 +15,11 @@ const Card: FC<ICardProps> = ({
 }): ReactElement => {
   return (
       <div className={styles.productCard}>
-        <div>
-
-        <input type="checkbox"></input>
-        </div>
+        <div className={styles.imageContainer}>
       <img className={styles.cardImage} src={product.imageUrl}/>
+        <input className={styles.checkbox} type="checkbox"></input>
+
+        </div>
       <div className={styles.imageText}>{product.name}</div>
       </div>
  

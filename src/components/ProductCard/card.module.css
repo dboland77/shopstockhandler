@@ -1,0 +1,45 @@
+:root{
+  --bodybackGround: #f5f6fa;
+  --buttonPurple: #8765be;
+  --bannerRed: #fbb1b3;
+  --deSelected: #dbd8d5;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 1rem;
+    border-radius: 4px;
+    margin: 5rem;
+    padding: 1rem;
+    background-color: var(--bodybackGround)
+  }
+  
+  .section.content{
+    flex: 1;
+  }
+  
+  .cardContainer>h3 {
+    font-weight: 600;
+    font-size: 1em;
+    margin: 1.1rem;
+    width: 50%;
+    display: inline;
+    margin: 0;
+  }
+
+  .cardImage{
+    width: 5rem;
+    height: 15rem;
+  }
+
+  .productCard {
+    display: flex;
+  flex-direction: column;
+    background-color: white;
+    padding: 1em;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--buttonPurple)
+    }

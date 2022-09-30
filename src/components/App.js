@@ -1,11 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useAxios} from "../hooks"
 import {baseURL} from "../constants"
-import {IProductInterface} from "../interfaces/productInterface"
 
 
 export const App = () => {
-    const [productData, setProductData] = useState<IProductInterface[] | []>([])
 
     const { response, loading, error } = useAxios({
         method: "GET",
@@ -16,9 +14,6 @@ export const App = () => {
         baseURL
     });
 
-    useEffect( ()=>
-       setProductData(response?.data)
-    ,[])
     
 
     return (
@@ -30,7 +25,7 @@ export const App = () => {
                 <p>{error.message}</p>
             )}
             {!loading && !error && (
-            productData.length > 0 ? "a" : "hello"
+                response.data[0].description
             )}
         </div>
     );

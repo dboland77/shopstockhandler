@@ -1,46 +1,38 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAxios} from "../hooks"
 import {baseURL} from "../constants"
+import {IProductInterface} from "../interfaces/productInterface"
 
 
 export const App = () => {
+    const [productData, setProductData] = useState<IProductInterface[] | []>([])
 
-  const [postId, setPostId] = useState(1);
-  const { response, loading, error, sendData } = useAxios({
-    method: "GET",
-    url: `/posts/${postId}`,
-    headers: {
-      accept: '*/*'
-    },
-    baseURL
-  });
+    const { response, loading, error } = useAxios({
+        method: "GET",
+        url: `/fca7ef93-8d86-4574-9a4a-3900d91a283e`,
+        headers: {
+            accept: '*/*'
+        },
+        baseURL
+    });
 
-  const getNextPost = () => {
-    setPostId(postId + 1);
-    sendData();
-  }
+    useEffect( ()=>
+       setProductData(response?.data)
+    ,[])
+    
 
-  return (
-    <div className="App">
-      <h1 className="page-title">Posts</h1>
-      {loading && (
-        <p>Loading...</p>
-      )}
-      {error && (
-        <p>{error.message}</p>
-      )}
-      {!loading && !error && (
-        <article className="post">
-          <h3 className="post-title">{response?.data.title}</h3>
-          <p className="post-body">
-            {response?.data.body}
-          </p>
-        </article>
-      )}
-      <button onClick={() => getNextPost()}>
-        Next Article Please!
-      </button>
-    </div>
-  );
+    return (
+        <div className="App">
+            {loading && (
+                <p>Loading...</p>
+            )}
+            {error && (
+                <p>{error.message}</p>
+            )}
+            {!loading && !error && (
+            productData.length > 0 ? "a" : "hello"
+            )}
+        </div>
+    );
 }
 

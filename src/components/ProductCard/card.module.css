@@ -29,8 +29,8 @@
   }
 
   .cardImage{
-    width: 5rem;
-    height: 15rem;
+    width: 8rem;
+    height: 10rem;
   }
 
   .productCard {
@@ -38,8 +38,15 @@
   flex-direction: column;
     background-color: white;
     padding: 1em;
+    width: 9rem;
   }
 
   input[type="checkbox"] {
     accent-color: var(--buttonPurple)
     }
+
+  .imageText{
+    font-size: 60%;
+    font-weight: bold;
+    padding: 0.4rem
+  }

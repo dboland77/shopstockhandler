@@ -20,7 +20,7 @@ const Card: FC<ICardProps> = ({
         <input type="checkbox"></input>
         </div>
       <img className={styles.cardImage} src={product.imageUrl}/>
-      {product.name}
+      <div className={styles.imageText}>{product.name}</div>
       </div>
  
   );

@@ -1,0 +1,29 @@
+.currentPrice{
+    font-size: 80%;
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+.previousPrice{
+    font-size: 80%;
+    font-weight: bold;
+    padding-left: 0.2rem;
+    text-decoration: line-through;
+    color: red
+}
+
+.discountBanner{
+    display: flex;
+    justify-content: center;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 3.1rem;
+    background: red;
+    opacity: 0.5;
+    padding: 0.2rem;
+    overflow: hidden;
+    margin-bottom:
+}

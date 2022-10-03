@@ -1,6 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import styles from "./card.module.css";
 import {IProductInterface} from "../../../interfaces"
+import { PriceLabel } from '../../PriceLabel/PriceLabel';
+
 
 interface ICardProps {
   product: IProductInterface
@@ -19,6 +21,8 @@ const Card: FC<ICardProps> = ({
 
         </div>
       <div className={styles.imageText}>{product.name}</div>
+    <PriceLabel currentPrice={product.price} previousPrice={product.priceWas} promotionBadge={product.promotionBadge}/>
+
       </div>
  
   );

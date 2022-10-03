@@ -7,7 +7,7 @@ import {DeleteButton} from "../components/DeleteButton/DeleteButton"
 
 export const App = () => {
     const [productData,setProductData] = useState([]);
-    const [removeProducts, setRemoveProducts] = useState([])
+    const [removeProducts, setRemoveProducts] = useState(()=> new Set([]))
 
     const { response, loading, error } = useAxios({
         method: "GET",
@@ -25,11 +25,13 @@ export const App = () => {
     },[loading])
 
     const handleDelete = () => {
-        alert(removeProducts)
+        setProductData(prev=> prev.filter(p => !removeProducts.has(p.productId)))
     }
 
     const handleSelect = (e, prodId) => {
-        console.log(e.target.checked, prodId)
+        e.target.checked?
+            setRemoveProducts(prev=> new Set(prev).add(prodId))
+       : setRemoveProducts(prev => prev.has(prodId)? prev.delete(prodId) : prev)
     }
     
 
@@ -45,7 +47,7 @@ export const App = () => {
                 <>
                 <DeleteButton 
                 handleClick = {handleDelete} 
-                numberSelected={removeProducts.length}/>
+                numberSelected={removeProducts.size}/>
                 <CardContainer>
 
                {productData.map((product) =>

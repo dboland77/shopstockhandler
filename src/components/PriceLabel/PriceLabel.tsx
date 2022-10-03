@@ -8,7 +8,7 @@ interface IPriceLabelProps{
 }
 export const PriceLabel:FC<IPriceLabelProps> = ({currentPrice="1.99", previousPrice="1.99", promotionBadge}) => {
   return (
-    <div>
+    <div role="pricelabelcontainer">
     {promotionBadge && <span className={styles.discountBanner}>{promotionBadge}</span>}
     <span className={styles.currentPrice}>£{currentPrice}</span>
     <span className={styles.previousPrice}>£{previousPrice}</span>

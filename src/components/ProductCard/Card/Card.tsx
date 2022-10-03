@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from "react";
 import styles from "./card.module.css";
 import {IProductInterface} from "../../../interfaces"
 import { PriceLabel } from '../../PriceLabel/PriceLabel';
+import { StockLabel } from '../../StockLabel/StockLabel';
 
 
 interface ICardProps {
@@ -22,6 +23,7 @@ const Card: FC<ICardProps> = ({
         </div>
       <div className={styles.imageText}>{product.name}</div>
     <PriceLabel currentPrice={product.price} previousPrice={product.priceWas} promotionBadge={product.promotionBadge}/>
+    <StockLabel available={product.available} quantity={product.quantity} lowOnStock={product.lowOnStock}/>
 
       </div>
  

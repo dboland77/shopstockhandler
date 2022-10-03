@@ -2,7 +2,7 @@ import React, {FC} from 'react'
 import styles from './stocklabel.module.css'
 
 interface IStockLabelProps{
-    available:string;
+    available:boolean;
     quantity: number;
     lowOnStock: boolean;
 }

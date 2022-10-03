@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useAxios} from "../hooks"
 import {baseURL} from "../constants"
 import {Card, CardContainer} from "./ProductCard"
-import {DeleteButton} from "../components/DeleteButton/DeleteButton"
+import {DeleteButton} from "./DeleteButton/DeleteButton"
 
 
 export const App = () => {

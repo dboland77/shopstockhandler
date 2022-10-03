@@ -9,7 +9,6 @@ interface IStockLabelProps{
 }
 export const StockLabel:FC<IStockLabelProps> = ({available, quantity, lowOnStock}) => {
   const bAvailable = stringToBool(available)
-  console.log(bAvailable)
   return (
     <div role="stocklabelcontainer">
     {bAvailable && quantity>0 && <span className={styles.inStock}>{`${String(quantity)} in stock`}</span>}

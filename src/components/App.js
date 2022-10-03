@@ -26,6 +26,7 @@ export const App = () => {
 
     const handleDelete = () => {
         setProductData(prev=> prev.filter(p => !removeProducts.has(p.productId)))
+        setRemoveProducts(new Set())
     }
 
     const handleSelect = (e, prodId) => {

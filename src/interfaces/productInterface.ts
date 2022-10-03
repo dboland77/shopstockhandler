@@ -4,9 +4,9 @@ export interface IProductInterface {
   description: string
   price: string
   priceWas: string
-  available: 'TRUE'
+  available: 'TRUE' | 'FALSE'
   quantity: number
-  lowOnStock: boolean
+  lowOnStock: 'TRUE' | 'FALSE'
   promotionBadge: string
   imageUrl: string
 }

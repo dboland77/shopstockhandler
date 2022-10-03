@@ -5,15 +5,18 @@ import styles from './stocklabel.module.css'
 interface IStockLabelProps{
     available:'TRUE' | 'FALSE';
     quantity: number;
-    lowOnStock: boolean;
+    lowOnStock: 'TRUE' | 'FALSE';
 }
 export const StockLabel:FC<IStockLabelProps> = ({available, quantity, lowOnStock}) => {
   const bAvailable = stringToBool(available)
+  const bLowOnStock = stringToBool(lowOnStock)
+  const bOutOfStock = quantity ===0
+
   return (
     <div role="stocklabelcontainer">
-    {bAvailable && quantity>0 && <span className={styles.inStock}>{`${String(quantity)} in stock`}</span>}
-    {bAvailable && lowOnStock && <div className={styles.lowOnStock}>low on stock</div>}
-    {!bAvailable && <span className={styles.outOfStock}>out of stock</span>}
+    {bAvailable && !bOutOfStock && <span className={styles.inStock}>{`${String(quantity)} in stock`}</span>}
+    {bAvailable && bLowOnStock && !bOutOfStock && <div className={styles.lowOnStock}>low on stock</div>}
+    {bOutOfStock && <span className={styles.outOfStock}>out of stock</span>}
 
     </div>
   )

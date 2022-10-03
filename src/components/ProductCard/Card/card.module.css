@@ -1,14 +1,4 @@
 
-.cardContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    gap: 1rem;
-    border-radius: 4px;
-    margin: 5rem;
-    padding: 1rem;
-    background-color: var(--bodybackGround)
-  }
-  
   .cardImage{
     width: 10rem;
     height: 15rem;

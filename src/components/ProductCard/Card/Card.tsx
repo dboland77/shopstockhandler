@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import styles from "./card.module.css";
-import {IProductInterface} from "../../interfaces"
+import {IProductInterface} from "../../../interfaces"
 
 interface ICardProps {
   product: IProductInterface

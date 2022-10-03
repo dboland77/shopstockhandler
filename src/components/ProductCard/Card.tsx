@@ -4,19 +4,17 @@ import {IProductInterface} from "../../interfaces"
 
 interface ICardProps {
   product: IProductInterface
-  // selected: boolean;
   handleSelect: () => void;
 }
 
 const Card: FC<ICardProps> = ({
   product,
-  // selected,
   handleSelect,
 }): ReactElement => {
   return (
-      <div className={styles.productCard}>
-        <div className={styles.imageContainer}>
-      <img className={styles.cardImage} src={product.imageUrl}/>
+      <div className={styles.productCard} role="productCard">
+        <div className={styles.imageContainer} role="imageContainer">
+      <img className={styles.cardImage} src={product.imageUrl} role="productimage"/>
         <input className={styles.checkbox} type="checkbox" onChange={handleSelect}></input>
 
         </div>

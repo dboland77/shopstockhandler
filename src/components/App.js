@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {useAxios} from "../hooks"
 import {baseURL} from "../constants"
 import {Card, CardContainer} from "./ProductCard"
+import {DeleteButton} from "../components/DeleteButton/DeleteButton"
 
 
 export const App = () => {
     const [productData,setProductData] = useState([]);
+    const [removeProducts, setRemoveProducts] = useState([])
 
     const { response, loading, error } = useAxios({
         method: "GET",
@@ -21,6 +23,14 @@ export const App = () => {
             setProductData(response.data)
         }
     },[loading])
+
+    const handleDelete = () => {
+        alert(removeProducts)
+    }
+
+    const handleSelect = (e, prodId) => {
+        console.log(e.target.checked, prodId)
+    }
     
 
     return (
@@ -32,10 +42,19 @@ export const App = () => {
                 <p>{error.message}</p>
             )}
             {!loading && !error && productData.length > 0 && (
+                <>
+                <DeleteButton 
+                handleClick = {handleDelete} 
+                numberSelected={removeProducts.length}/>
                 <CardContainer>
 
-               {productData.map((product) =><Card key={product.productId} product={product}/>)}
+               {productData.map((product) =>
+               <Card 
+               key={product.productId} 
+               product={product}
+               handleSelect={e=> handleSelect(e, product.productId)}/>)}
                 </CardContainer>
+                </>
             )}
         </div>
     );
